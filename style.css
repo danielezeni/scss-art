@@ -1,0 +1,103 @@
+$master-size: 20vmax;
+$pink: #ee565a;
+$grey: #ddd;
+$black: #222;
+$white: #fff;
+$darkpink: #e04e50;
+
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+html {
+  font-size: 100%;
+}
+body {
+  background: #eee;
+  font-size: 10px;
+}
+
+.heart {
+  animation: 1s pulse infinite;
+  margin: auto;
+  position: relative;
+  width: $master-size * 2;
+}
+.heart:before,
+.heart:after {
+  background: $pink;
+  border-radius: $master-size $master-size $master-size * 0.2 $master-size * 0.2;
+  content: "";
+  left: $master-size;
+  height: $master-size * 1.6;
+  position: absolute;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  width: $master-size;
+}
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.face {
+  background: $black;
+  border-radius: 0 0 $master-size * 0.5 $master-size * 0.5;
+  border-top: $master-size * 0.1 solid $white;
+  display: block;
+  height: $master-size * 0.3;
+  left: $master-size * 0.7;
+  position: absolute;
+  top: $master-size * 0.8;
+  width: $master-size * 0.6;
+  z-index: 5;
+}
+.face:before,
+.face:after {
+  background: $black;
+  border-radius: $master-size * 0.2;
+  box-shadow: 0 $master-size * 0.2 0 -0.9vmax $darkpink;
+  content: "";
+  display: block;
+  height: $master-size * 0.2;
+  position: absolute;
+  bottom: $master-size * 0.4;
+  width: $master-size * 0.2;
+  z-index: 5;
+}
+.face:before {
+  left: -$master-size * 0.2;
+}
+
+.face:after {
+  right: -$master-size * 0.2;
+}
+
+h1 {
+  background: $white;
+  border: 1px solid $grey;
+  border-radius: $master-size;
+  font: 700 $master-size * 0.25/1 "courier";
+  margin: $master-size * 0.5 auto $master-size * 0.2;
+  padding: 1vw;
+  text-align: center;
+  width: $master-size * 2.5;
+  z-index: 5;
+}
+h1:after {
+  border: 1vw solid transparent;
+  border-color: transparent $white $white transparent;
+  box-shadow: $master-size * 0.005 $master-size * 0.005 $grey;
+  content: "";
+  display: block;
+  left: $master-size * 0.3;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+@keyframes pulse {
+  80% {
+    transform: scale(0.9);
+  }
+}
